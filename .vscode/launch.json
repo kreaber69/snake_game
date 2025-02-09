@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug C++ File",  // Debug configuration name
+            "type": "cppdbg",          // Debugger type for C++ (use gdb or lldb)
+            "request": "launch",       // Ensure it's 'launch', so VS Code launches the program in debug mode
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",  // Path to executable
+            "args": [],                // Arguments to pass to your program (empty for now)
+            "stopAtEntry": true,       // Automatically break at the entry point (main())
+            "cwd": "${fileDirname}",   // Current working directory
+            "environment": [],         // Set environment variables if needed
+            "externalConsole": true,   // Use an external console for output (helps on Windows)
+            "MIMode": "gdb",           // Use GDB as the debugger
+            "miDebuggerPath": "C:/msys64/mingw64/bin/gdb.exe",  // Path to GDB executable
+            "preLaunchTask": "C/C++: gcc.exe build active file",  // Run this build task before debugging
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "miDebuggerArgs": "",
+            "sourceFileMap": {
+                "/build/glibc-*/": "/usr/include"  // For source file mapping (used if debugging external libraries)
+            }
+        }
+    ]
+}
+
+
